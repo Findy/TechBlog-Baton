@@ -3,6 +3,6 @@ layout: home
 title: "Home"
 ---
 
-# ようこそ TechBlog-Baton へ
+# ようこそ TechBlogのバトンへ
 
 ここにコンテンツを追加してください。
