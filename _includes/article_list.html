@@ -1,10 +1,17 @@
 <div class="article-list">
   {% for article in site.data.articles_data.articles %}
     <div class="article-item">
+      <!-- 日付を最初に表示 -->
+      <p class="published-date">公開日: {{ article.published }}</p>
+      
+      <!-- サムネイル画像を表示 -->
       <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">
         <img src="{{ article.image }}" alt="{{ article.title }}" class="thumbnail">
+      </a>
+      
+      <!-- タイトルを表示 -->
+      <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">
         <h3>{{ article.title }}</h3>
-        <p class="published-date">公開日: {{ article.published }}</p>
       </a>
     </div>
   {% endfor %}
