@@ -5,7 +5,7 @@
 
 /* サイドバーのスタイル */
 .sidebar {
-  width: 250px;
+  flex: 0 0 250px; /* 初期幅を250pxに設定し、フレキシブルに */
   background-color: #f5f5f5;
   padding: 15px;
   position: sticky;
@@ -13,6 +13,7 @@
   height: 100vh;
   overflow-y: auto;
   border-right: 1px solid #ddd;
+  transition: flex-basis 0.3s ease;
 }
 
 /* サイドバー内のタイトル */
@@ -46,7 +47,7 @@
 
 /* メインコンテンツのスタイル */
 .content {
-  flex-grow: 1;
+  flex: 1; /* 残りのスペースを全て使用 */
   padding: 20px;
 }
 
@@ -57,8 +58,13 @@
   }
 
   .sidebar {
-    width: 100%;
-    height: auto;
     position: relative;
+    height: auto;
+    flex: none;
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
   }
 }
