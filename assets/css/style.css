@@ -3,9 +3,9 @@
   display: flex;
 }
 
-/* サイドバー全体のスタイル */
+/* サイドバーのスタイル */
 .sidebar {
-  flex-basis: 250px; /* 初期幅を設定（初期は250px） */
+  width: 250px;
   background-color: #f5f5f5;
   padding: 15px;
   position: sticky;
@@ -13,7 +13,6 @@
   height: 100vh;
   overflow-y: auto;
   border-right: 1px solid #ddd;
-  transition: flex-basis 0.3s ease; /* 幅が変わるときのアニメーションを追加 */
 }
 
 /* サイドバー内のタイトル */
@@ -22,30 +21,27 @@
   margin-bottom: 10px;
 }
 
-/* サイドバーのリスト（目次）のスタイル */
+/* サイドバーのリストスタイル */
 .sidebar ul {
-  list-style-type: none; /* デフォルトのリストマーカーを消す */
-  padding-left: 0;       /* 最初のリストレベルの余白を0にする */
+  list-style-type: none;
+  padding-left: 0;
 }
 
-/* サイドバーのリスト項目 */
 .sidebar li {
   margin-bottom: 10px;
 }
 
-/* インデントのためのスタイル */
 .sidebar li ul {
-  padding-left: 20px; /* 内側のリストにインデントを加える */
+  padding-left: 20px;
 }
 
-/* リンクのスタイル */
 .sidebar li a {
   text-decoration: none;
   color: #333;
 }
 
 .sidebar li a:hover {
-  color: #007BFF; /* マウスオーバー時のリンク色 */
+  color: #007BFF;
 }
 
 /* メインコンテンツのスタイル */
@@ -54,15 +50,15 @@
   padding: 20px;
 }
 
-/* ウィンドウが狭い場合のサイドバー調整（レスポンシブ対応） */
+/* レスポンシブ対応 */
 @media (max-width: 768px) {
-  .sidebar {
-    flex-basis: 200px; /* 画面が小さくなったときに幅を狭くする */
+  .container {
+    flex-direction: column;
   }
-}
 
-@media (max-width: 480px) {
   .sidebar {
-    flex-basis: 150px; /* モバイルサイズの場合のサイドバー幅を設定 */
+    width: 100%;
+    height: auto;
+    position: relative;
   }
 }
