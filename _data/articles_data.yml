@@ -1,13 +1,13 @@
-articles:
-- image: https://cdn.image.st-hatena.com/image/scale/9c2a6db2789e8b20bd87afcfe98cf6e6a00189a6/backend=imagemagick;height=1200;version=1;width=1200/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpuku0x%2F20240904%2F20240904150623.png
-  published: '2024-09-24'
-  title: ファインディでのGitHub Actions自動化の事例 - Findy Tech Blog
-  url: https://tech.findy.co.jp/entry/2024/09/24/090000
-- image: https://cdn.image.st-hatena.com/image/scale/de73bdfa43d7dcfcebd96369e8fdd7a950cce9db/backend=imagemagick;height=1200;version=1;width=1200/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2FT%2FTaka_bow%2F20240917%2F20240917112027.png
-  published: '2024-09-20'
-  title: GitHub Copilotの効果は本物？論文から読み解く開発生産性の真実 - Findy Tech Blog
-  url: https://tech.findy.co.jp/entry/2024/09/20/090000
-- image: https://engineering.visional.inc/blog/491/soda/491_ogp_hu9aa618661a81023438128c9509822fdb_469039_1200x630_fill_q90_bgffffff_lanczos_center_3.jpg
-  published: 公開日不明
-  title: 'SODA: ビズリーチが目指すプロダクト組織の「計器飛行」（前編）'
-  url: https://engineering.visional.inc/blog/491/soda/
+topics:
+- articles:
+  - image: https://cdn.image.st-hatena.com/image/scale/de73bdfa43d7dcfcebd96369e8fdd7a950cce9db/backend=imagemagick;height=1200;version=1;width=1200/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2FT%2FTaka_bow%2F20240917%2F20240917112027.png
+    published: '2024-09-20'
+    title: GitHub Copilotの効果は本物？論文から読み解く開発生産性の真実 - Findy Tech Blog
+    url: https://tech.findy.co.jp/entry/2024/09/20/090000
+  - image: https://engineering.visional.inc/blog/491/soda/491_ogp_hu9aa618661a81023438128c9509822fdb_469039_1200x630_fill_q90_bgffffff_lanczos_center_3.jpg
+    published: 公開日不明
+    title: 'SODA: ビズリーチが目指すプロダクト組織の「計器飛行」（前編）'
+    url: https://engineering.visional.inc/blog/491/soda/
+  title: '2024年9月の技術テーマ: リモートワークの未来'
+- articles: []
+  title: '2024年8月の技術テーマ: AIとソフトウェア開発'
