@@ -74,6 +74,16 @@
   padding: 20px;
 }
 
+/* サムネイル画像のスタイル */
+.thumbnail {
+  width: 100%;             /* 親要素の幅に合わせる */
+  max-width: 150px;         /* サムネイルの最大幅を150pxに制限 */
+  height: auto;             /* アスペクト比を維持して高さを自動設定 */
+  display: block;           /* ブロック要素として扱い、他の要素と独立させる */
+  margin: 10px auto;        /* 上下に10pxのマージンを設定し、中央揃え */
+  border-radius: 5px;       /* 角を丸くする（任意） */
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   .container {
