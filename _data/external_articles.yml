@@ -1,12 +1,14 @@
 topics:
-  - title: "2024年9月の技術テーマ: リモートワークの未来"
+  - title: "第2回テーマ: リモートワークの未来"
     articles:
       - url: "https://tech.findy.co.jp/entry/2024/09/20/090000"
       - url: "https://engineering.visional.inc/blog/491/soda/"
 
-  - title: "2024年8月の技術テーマ: AIとソフトウェア開発"
+  - title: "第1回テーマ: うちの会社のいいところ"
     articles:
-      - url: "https://example.com/ai-software"
-      - url: "https://example.com/ai-automation"
+      - url: "https://tech.findy.co.jp/entry/2024/04/25/090000"
+      - url: "https://engineering.visional.inc/blog/572/epic-lead/"
+        published: "2024/06/25"
       # 将来的に追加する場合は以下のようにURLを追加
       # - url: "https://example.com/another-article"
+      # 日付が自動取得出来ない場合は published: "2024/06/25" のように手書きでurlの次の行に書いてください
