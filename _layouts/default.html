@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
-</head>
-<body>
-  <div class="container">
-    <!-- サイドバー -->
-    <aside class="sidebar" id="sidebar">
-      {% include sidebar.html %}
-    </aside>
-
-    <!-- リサイズバー -->
-    <div id="dragbar"></div>
-
-    <!-- メインコンテンツ -->
-    <main class="content" id="main-content">
-      {{ content }}
-    </main>
-  </div>
-
-  <!-- スクリプトを読み込み -->
-  <script src="{{ "/assets/js/resize.js" | relative_url }}"></script>
-</body>
-</html>
+<div class="container">
+  <!-- メインコンテンツ -->
+  <main class="content" id="main-content">
+    {{ content }}
+  </main>
+</div>
