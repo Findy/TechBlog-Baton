@@ -1,51 +1,35 @@
-/* コンテナ全体のスタイル */
-.container {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
 /* サイドバーのスタイル */
 .sidebar {
+  /* 既存のスタイル */
   width: 250px; /* 初期幅 */
   min-width: 150px; /* 最小幅 */
   max-width: 500px; /* 最大幅 */
   background-color: #f5f5f5;
   overflow: auto;
+  transition: width 0.2s ease; /* スムーズなリサイズ */
 }
 
-/* リサイズバーのスタイル */
-#dragbar {
-  width: 5px;
-  cursor: col-resize;
-  background-color: #ddd;
-  position: relative;
-  z-index: 10;
+/* サイドバー内のリスト */
+.sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0; /* 余白をリセット */
 }
 
-/* メインコンテンツのスタイル */
-.content {
-  flex-grow: 1;
-  overflow: auto;
-  padding: 20px;
+/* リスト項目 */
+.sidebar li {
+  margin-bottom: 10px;
+  word-wrap: break-word; /* 長い単語を折り返す */
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
+/* リンクのスタイル */
+.sidebar li a {
+  text-decoration: none;
+  color: #333;
+  display: block; /* リンクをブロック要素にして幅を親に合わせる */
+}
 
-  #dragbar {
-    width: 100%;
-    height: 5px;
-    cursor: row-resize;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: 250px;
-    min-height: 150px;
-    max-height: 500px;
-  }
+/* ネストされたリストのインデント */
+.sidebar li ul {
+  padding-left: 20px;
 }
