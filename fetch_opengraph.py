@@ -1,8 +1,8 @@
-# fetch_opengraph.py
 import requests
 from bs4 import BeautifulSoup
 import yaml
 import re
+from datetime import datetime  # 追加
 
 INPUT_FILE = '_data/external_articles.yml'
 OUTPUT_FILE = '_data/articles_data.yml'
@@ -29,7 +29,16 @@ def fetch_opengraph_data(url):
 
     # 公開日を取得（metaタグから探す）
     og_published = soup.find('meta', property='article:published_time') or soup.find('meta', {'itemprop': 'datePublished'})
-    published = og_published['content'] if og_published and 'content' in og_published.attrs else '公開日不明'
+    
+    if og_published and 'content' in og_published.attrs:
+        published_raw = og_published['content']
+        # Unixタイムスタンプを日付に変換
+        if re.match(r'^\d{10}$', published_raw):  # Unixタイムスタンプが10桁の場合
+            published = datetime.utcfromtimestamp(int(published_raw)).strftime('%Y-%m-%d')
+        else:
+            published = published_raw  # すでに人間が読みやすい形式の場合はそのまま
+    else:
+        published = '公開日不明'
 
     return {
         'url': url,
