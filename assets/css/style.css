@@ -1,17 +1,29 @@
-/* サイドバーのスタイル */
-.sidebar {
-  /* 既存のスタイル */
-  width: 250px; /* 初期幅 */
-  min-width: 150px; /* 最小幅 */
-  max-width: 500px; /* 最大幅 */
-  background-color: #f5f5f5;
-  overflow: auto;
-  transition: width 0.2s ease; /* スムーズなリサイズ */
+/* コンテナ全体のスタイル */
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* サイドバー内のリスト */
+/* サイドバーのスタイル */
+.sidebar {
+  width: 250px; /* 初期幅を250pxに設定 */
+  min-width: 150px; /* 最小幅を150pxに設定 */
+  max-width: 500px; /* 最大幅を500pxに設定 */
+  background-color: #f5f5f5;
+  overflow: auto;
+  transition: width 0.2s ease; /* 幅が変わるときのスムーズなアニメーション */
+}
+
+/* サイドバー内のタイトル */
+.sidebar h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* サイドバーのリストスタイル */
 .sidebar ul {
-  list-style-type: none;
+  list-style-type: none; /* デフォルトのリストマーカーを削除 */
   padding-left: 0;
   margin: 0; /* 余白をリセット */
 }
@@ -20,16 +32,69 @@
 .sidebar li {
   margin-bottom: 10px;
   word-wrap: break-word; /* 長い単語を折り返す */
+  /* 必要に応じて以下を使用して単語内での折り返しを許可 */
+  /* word-break: break-all; */
 }
 
 /* リンクのスタイル */
 .sidebar li a {
   text-decoration: none;
   color: #333;
-  display: block; /* リンクをブロック要素にして幅を親に合わせる */
+  display: block; /* リンクをブロック要素にして親の幅に合わせる */
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+/* リンクのホバー時の色変更 */
+.sidebar li a:hover {
+  color: #007BFF;
 }
 
 /* ネストされたリストのインデント */
 .sidebar li ul {
   padding-left: 20px;
+}
+
+/* リサイズバーのスタイル */
+#dragbar {
+  width: 5px;
+  cursor: col-resize;
+  background-color: #ddd;
+  position: relative;
+  z-index: 10;
+}
+
+/* メインコンテンツのスタイル */
+.content {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 20px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 250px; /* 高さを固定 */
+    min-height: 150px;
+    max-height: 500px;
+    position: relative;
+  }
+
+  #dragbar {
+    width: 100%;
+    height: 5px;
+    cursor: row-resize; /* 縦方向のリサイズカーソル */
+  }
+}
+
+@media (max-width: 600px) {
+  /* サイドバーが狭くなったときのフォントサイズ調整 */
+  .sidebar li a {
+    font-size: 0.9em;
+  }
 }
