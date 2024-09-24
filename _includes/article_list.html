@@ -1,0 +1,11 @@
+<!-- _includes/article_list.html -->
+<div class="article-list">
+  {% for article in site.data.articles_data.articles %}
+    <div class="article-item">
+      <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">
+        <img src="{{ article.image }}" alt="{{ article.title }}" class="thumbnail">
+        <h3>{{ article.title }}</h3>
+      </a>
+    </div>
+  {% endfor %}
+</div>
