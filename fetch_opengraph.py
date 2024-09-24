@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import yaml
 import re
-from datetime import datetime  # 追加
+from datetime import datetime
 
 INPUT_FILE = '_data/external_articles.yml'
 OUTPUT_FILE = '_data/articles_data.yml'
@@ -49,24 +49,32 @@ def fetch_opengraph_data(url):
 
 def main():
     with open(INPUT_FILE, 'r', encoding='utf-8') as f:
-        urls = yaml.safe_load(f)['articles']
+        data = yaml.safe_load(f)
 
-    articles_data = []
+    topics_data = []
 
-    for item in urls:
-        url = item['url']
-        print(f"Fetching Open Graph data from: {url}")
-        data = fetch_opengraph_data(url)
-        if data:
-            articles_data.append(data)
-        else:
-            print(f"Failed to fetch data for {url}")
+    for topic in data['topics']:
+        topic_data = {
+            'title': topic['title'],
+            'articles': []
+        }
+
+        for article in topic['articles']:
+            url = article['url']
+            print(f"Fetching Open Graph data from: {url}")
+            data = fetch_opengraph_data(url)
+            if data:
+                topic_data['articles'].append(data)
+            else:
+                print(f"Failed to fetch data for {url}")
+
+        topics_data.append(topic_data)
 
     # データファイルに書き出し
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        yaml.dump({'articles': articles_data}, f, allow_unicode=True)
+        yaml.dump({'topics': topics_data}, f, allow_unicode=True)
 
-    print(f"Data file '{OUTPUT_FILE}' has been updated with {len(articles_data)} articles.")
+    print(f"Data file '{OUTPUT_FILE}' has been updated with articles from {len(topics_data)} topics.")
 
 if __name__ == "__main__":
     main()
