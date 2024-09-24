@@ -1,58 +1,203 @@
-/* コンテナ全体のスタイル */
-.container {
-  display: block; /* フレックスレイアウトを解除 */
-  height: auto;
-  overflow: visible;
+/* 全体のフォント設定 */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f5f5f5; /* 背景色を薄いグレーに設定 */
+  color: #333; /* 文字色をダークグレーに設定 */
+  margin: 0;
+  padding: 0;
 }
 
-/* メインコンテンツのスタイル */
-.content {
+/* ヘッダーのスタイル */
+.site-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  padding: 20px 0;
+}
+
+.site-title {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8em;
+}
+
+.site-title a {
+  text-decoration: none;
+  color: #333;
+}
+
+.site-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  gap: 20px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.site-nav a:hover {
+  color: #007BFF; /* ホバー時に青色に変更 */
+}
+
+/* フッターのスタイル */
+.site-footer {
+  background-color: #ffffff;
+  border-top: 1px solid #eaeaea;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.site-footer p {
+  margin: 0;
+  color: #777;
+  font-size: 0.9em;
+}
+
+/* ページ説明のスタイル */
+.page-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* 記事リストのスタイル */
+.article-list {
   width: 100%;
-  padding: 20px;
 }
 
-/* 記事アイテムのスタイル */
-.article-item {
-  text-align: center; /* コンテンツを中央揃えにする（任意） */
+.topic-section {
+  margin-bottom: 50px;
+}
+
+.topic-title {
+  font-size: 1.6em;
+  color: #333;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+/* グリッドレイアウトのスタイル */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* 記事カードのスタイル */
+.article-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* サムネイル画像のスタイル */
 .thumbnail {
-  width: 100%;             /* 親要素の幅に合わせる */
-  max-width: 512px;        /* サムネイルの最大幅を512pxに設定 */
-  height: auto;            /* アスペクト比を維持して高さを自動設定 */
-  display: block;          /* ブロック要素として扱い、他の要素と独立させる */
-  margin: 10px auto;       /* 上下に10pxのマージンを設定し、中央揃え */
-  border-radius: 5px;      /* 角を丸くする（任意） */
+  width: 100%;
+  max-width: 512px; /* サムネイルの最大幅を512pxに設定 */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 記事コンテンツのスタイル */
+.article-content {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 記事タイトルのスタイル */
+.article-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  margin: 10px 0 0 0;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.article-title:hover {
+  color: #007BFF; /* ホバー時に青色に変更 */
 }
 
 /* 公開日のスタイル */
 .published-date {
-  font-size: 0.9em;
-  color: #666;
-  margin-bottom: 5px;
+  font-size: 0.85em;
+  color: #999;
+  margin: 0;
 }
 
 /* レスポンシブ対応 */
-@media (max-width: 768px) {
-  /* サムネイルの最大幅を調整 */
-  .thumbnail {
-    max-width: 150px;
+@media (max-width: 1024px) {
+  .articles-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
   }
 }
 
-@media (max-width: 600px) {
-  /* サムネイルがさらに狭くなる場合 */
+@media (max-width: 768px) {
+  .articles-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
   .thumbnail {
-    max-width: 120px;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .thumbnail {
+    max-width: 100%;
   }
 }
 
 /* その他の基本スタイル */
 h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
   margin-top: 20px;
   margin-bottom: 10px;
-  font-weight: bold;
-  line-height: 1.2em;
+  font-weight: 700;
+  line-height: 1.3em;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+h2 {
+  font-size: 2em;
+  color: #333;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #333;
 }
