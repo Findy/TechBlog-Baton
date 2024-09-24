@@ -1,0 +1,39 @@
+name: Update Articles Data
+
+on:
+  push:
+    paths:
+      - '_data/external_articles.yml'
+      - 'fetch_opengraph.py'
+  schedule:
+    - cron: '0 0 * * *'  # 毎日午前0時（UTC）に実行
+  workflow_dispatch:  # 手動トリガーを有効化
+
+jobs:
+  fetch_articles:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 PyYAML
+
+      - name: Run fetch_opengraph.py
+        run: |
+          python fetch_opengraph.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add _data/articles_data.yml
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update articles data"
+          git push
