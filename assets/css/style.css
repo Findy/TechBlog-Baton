@@ -5,7 +5,7 @@
 
 /* サイドバーのスタイル */
 .sidebar {
-  flex: 0 0 250px; /* 初期幅を250pxに設定し、フレキシブルに */
+  flex: 0 0 300px; /* 初期幅を250pxに設定し、フレキシブルに */
   background-color: #f5f5f5;
   padding: 15px;
   position: sticky;
