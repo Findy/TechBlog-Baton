@@ -1,0 +1,32 @@
+.article-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.article-item {
+  width: 300px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  transition: box-shadow 0.3s;
+  background-color: #fff;
+}
+
+.article-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.article-item img.thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.article-item h3 {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
