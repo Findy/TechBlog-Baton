@@ -25,7 +25,7 @@ def fetch_opengraph_data(url):
     og_image = soup.find('meta', property='og:image')
 
     title = og_title['content'] if og_title and 'content' in og_title.attrs else 'No Title'
-    image = og_image['content'] if og_image and 'content' in og_image.attrs else 'https://via.placeholder.com/300x200?text=No+Image'
+    image = og_image['content'] if og_image and 'content' in og_image.attrs else 'https://via.placeholder.com/512x320?text=No+Image'
 
     # 公開日を取得
     og_published = soup.find('meta', property='article:published_time') or soup.find('meta', {'itemprop': 'datePublished'})
@@ -62,9 +62,22 @@ def main():
         for article in topic['articles']:
             url = article['url']
             print(f"Fetching Open Graph data from: {url}")
-            data = fetch_opengraph_data(url)
-            if data:
-                topic_data['articles'].append(data)
+            fetched_data = fetch_opengraph_data(url)
+            if fetched_data:
+                # 手動で設定された公開日が存在するか確認
+                manual_published = article.get('published')
+                if manual_published:
+                    fetched_data['published'] = manual_published
+                
+                # 手動で設定されたタイトルと画像が存在するか確認
+                manual_title = article.get('title')
+                manual_image = article.get('image')
+                if manual_title:
+                    fetched_data['title'] = manual_title
+                if manual_image:
+                    fetched_data['image'] = manual_image
+
+                topic_data['articles'].append(fetched_data)
             else:
                 print(f"Failed to fetch data for {url}")
 
