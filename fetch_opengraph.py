@@ -19,16 +19,23 @@ def fetch_opengraph_data(url):
         return None
 
     soup = BeautifulSoup(response.text, 'html.parser')
+    
+    # Open Graph タグからタイトルと画像を取得
     og_title = soup.find('meta', property='og:title')
     og_image = soup.find('meta', property='og:image')
 
     title = og_title['content'] if og_title and 'content' in og_title.attrs else 'No Title'
     image = og_image['content'] if og_image and 'content' in og_image.attrs else 'https://via.placeholder.com/300x200?text=No+Image'
 
+    # 公開日を取得（metaタグから探す）
+    og_published = soup.find('meta', property='article:published_time') or soup.find('meta', {'itemprop': 'datePublished'})
+    published = og_published['content'] if og_published and 'content' in og_published.attrs else '公開日不明'
+
     return {
         'url': url,
         'title': title,
-        'image': image
+        'image': image,
+        'published': published  # 公開日を追加
     }
 
 def main():
