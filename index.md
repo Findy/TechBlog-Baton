@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 企業ブログリンク集
+title: テックブログのバトンわたし
 ---
 
 <h1>{{ page.title }}</h1>
