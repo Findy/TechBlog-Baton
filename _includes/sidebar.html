@@ -1,0 +1,17 @@
+<div class="sidebar">
+  <h3>目次</h3>
+  <ul>
+    {% for topic in site.data.articles_data.topics %}
+      <li>
+        <a href="#{{ topic.title | slugify }}">{{ topic.title }}</a>
+        <ul>
+          {% for article in topic.articles %}
+            <li>
+              <a href="{{ article.url }}" target="_blank">{{ article.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
