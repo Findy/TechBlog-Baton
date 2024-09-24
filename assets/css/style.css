@@ -1,4 +1,4 @@
-/* サイドバーのスタイル */
+/* サイドバー全体のスタイル */
 .sidebar {
   width: 250px;
   background-color: #f5f5f5;
@@ -10,24 +10,29 @@
   border-right: 1px solid #ddd;
 }
 
+/* サイドバー内のタイトル */
 .sidebar h3 {
   font-size: 1.2em;
   margin-bottom: 10px;
 }
 
+/* サイドバーのリスト（目次）のスタイル */
 .sidebar ul {
-  list-style-type: none; /* インデントに関する調整 */
-  padding-left: 0;       /* サイドバー全体の余白を無効にする */
+  list-style-type: none; /* デフォルトのリストマーカーを消す */
+  padding-left: 0;       /* 最初のリストレベルの余白を0にする */
 }
 
+/* サイドバーのリスト項目 */
 .sidebar li {
   margin-bottom: 10px;
 }
 
+/* インデントのためのスタイル */
 .sidebar li ul {
-  padding-left: 20px; /* 内側のリスト（インデント） */
+  padding-left: 20px; /* 内側のリストにインデントを加える */
 }
 
+/* リンクのスタイル */
 .sidebar li a {
   text-decoration: none;
   color: #333;
