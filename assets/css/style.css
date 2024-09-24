@@ -26,14 +26,14 @@
   list-style-type: none; /* デフォルトのリストマーカーを削除 */
   padding-left: 0;
   margin: 0; /* 余白をリセット */
+  width: 100%; /* サイドバーの幅に追随する */
 }
 
 /* リスト項目 */
 .sidebar li {
   margin-bottom: 10px;
   word-wrap: break-word; /* 長い単語を折り返す */
-  /* 必要に応じて以下を使用して単語内での折り返しを許可 */
-  /* word-break: break-all; */
+  white-space: normal; /* テキストを折り返して幅に合わせる */
 }
 
 /* リンクのスタイル */
@@ -43,6 +43,9 @@
   display: block; /* リンクをブロック要素にして親の幅に合わせる */
   font-size: 1em;
   line-height: 1.2em;
+  width: 100%; /* リンクも幅に追随する */
+  box-sizing: border-box; /* パディングを含めて幅を調整 */
+  overflow-wrap: break-word; /* テキストを折り返す */
 }
 
 /* リンクのホバー時の色変更 */
@@ -90,11 +93,15 @@
     height: 5px;
     cursor: row-resize; /* 縦方向のリサイズカーソル */
   }
+
+  .sidebar li a {
+    font-size: 0.9em; /* サイドバーが狭くなったときのフォントサイズ調整 */
+  }
 }
 
 @media (max-width: 600px) {
-  /* サイドバーが狭くなったときのフォントサイズ調整 */
+  /* サイドバーがさらに狭くなったときのフォントサイズ調整 */
   .sidebar li a {
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
 }
