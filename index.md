@@ -1,8 +1,8 @@
 ---
-layout: home
-title: "Home"
+layout: default
+title: 企業ブログリンク集
 ---
 
-# ようこそ TechBlogのバトンへ
+<h1>企業ブログリンク集</h1>
 
-ここにコンテンツを追加してください。
+{% include article_list.html %}
