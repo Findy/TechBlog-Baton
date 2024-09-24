@@ -20,23 +20,23 @@ def fetch_opengraph_data(url):
 
     soup = BeautifulSoup(response.text, 'html.parser')
     
-    # Open Graph タグからタイトルと画像を取得
+    # タイトルと画像を取得
     og_title = soup.find('meta', property='og:title')
     og_image = soup.find('meta', property='og:image')
 
     title = og_title['content'] if og_title and 'content' in og_title.attrs else 'No Title'
     image = og_image['content'] if og_image and 'content' in og_image.attrs else 'https://via.placeholder.com/300x200?text=No+Image'
 
-    # 公開日を取得（metaタグから探す）
+    # 公開日を取得
     og_published = soup.find('meta', property='article:published_time') or soup.find('meta', {'itemprop': 'datePublished'})
     
     if og_published and 'content' in og_published.attrs:
         published_raw = og_published['content']
         # Unixタイムスタンプを日付に変換
-        if re.match(r'^\d{10}$', published_raw):  # Unixタイムスタンプが10桁の場合
+        if re.match(r'^\d{10}$', published_raw):
             published = datetime.utcfromtimestamp(int(published_raw)).strftime('%Y-%m-%d')
         else:
-            published = published_raw  # すでに人間が読みやすい形式の場合はそのまま
+            published = published_raw
     else:
         published = '公開日不明'
 
@@ -44,7 +44,7 @@ def fetch_opengraph_data(url):
         'url': url,
         'title': title,
         'image': image,
-        'published': published  # 公開日を追加
+        'published': published
     }
 
 def main():
@@ -70,11 +70,8 @@ def main():
 
         topics_data.append(topic_data)
 
-    # データファイルに書き出し
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         yaml.dump({'topics': topics_data}, f, allow_unicode=True)
-
-    print(f"Data file '{OUTPUT_FILE}' has been updated with articles from {len(topics_data)} topics.")
 
 if __name__ == "__main__":
     main()
