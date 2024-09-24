@@ -1,11 +1,21 @@
-<div class="article-item">
-  <p class="published-date">公開日: {{ article.published }}</p>
-
-  <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">
-    <img src="{{ article.image }}" alt="{{ article.title }}" class="thumbnail">
-  </a>
-
-  <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">
-    <h3>{{ article.title }}</h3>
-  </a>
+<div class="topics-list">
+  {% for topic in site.data.articles_data.topics %}
+    <div class="topic" id="{{ topic.title | slugify }}">
+      <h2>{{ topic.title }}</h2>
+    </div>
+    <div class="article-list">
+      {% for article in topic.articles %}
+        <div class="article-item">
+          <p class="published-date">公開日: {{ article.published }}</p>
+          <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ article.image }}" alt="{{ article.title }}" class="thumbnail">
+          </a>
+          <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">
+            <h3>{{ article.title }}</h3>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <hr>
+  {% endfor %}
 </div>
