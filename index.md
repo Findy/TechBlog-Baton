@@ -4,6 +4,6 @@ layout: default
 title: テックブログのバトンつなぎ
 ---
 
-<h1>{{ page.title }}</h1>
+<h1>テックブログのバトンつなぎ</h1>
 
 {% include article_list.html %}
