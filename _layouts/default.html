@@ -2,15 +2,37 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <!-- Google Fonts の追加 -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="container">
-    <!-- メインコンテンツ -->
-    <main class="content" id="main-content">
-      {{ content }}
-    </main>
-  </div>
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="{{ "/" | relative_url }}">ホーム</a></li>
+          <!-- 必要に応じて他のリンクを追加 -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="content" id="main-content">
+    {{ content }}
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+      <!-- 必要に応じてソーシャルリンクやその他情報を追加 -->
+    </div>
+  </footer>
 </body>
 </html>
