@@ -14,9 +14,9 @@ body {
 
 /* コンテナ全体のスタイル */
 .container {
-  max-width: 1200px;
+  max-width: 1100px; /* 最大幅を1200pxから1100pxに減少 */
   margin: 0 auto;
-  padding: 20px 60px; /* 左右に60pxのパディングを追加 */
+  padding: 20px 80px; /* 左右に80pxのパディングを追加 */
   background-color: #ffffff; /* 背景色を白に設定 */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽いシャドウを追加 */
   border-radius: 8px; /* 角を少し丸くする */
