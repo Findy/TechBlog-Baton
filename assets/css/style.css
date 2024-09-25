@@ -149,7 +149,7 @@ body {
   max-width: 512px; /* サムネイルの最大幅を512pxに設定 */
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto 0 auto; /* 上部に20pxのマージンを追加 */
   border-bottom: 1px solid #ddd;
 }
 
