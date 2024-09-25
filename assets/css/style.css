@@ -16,7 +16,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 40px; /* 左右に40pxのパディングを追加 */
+  padding: 20px 60px; /* 左右に60pxのパディングを追加 */
   background-color: #ffffff; /* 背景色を白に設定 */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽いシャドウを追加 */
   border-radius: 8px; /* 角を少し丸くする */
@@ -83,6 +83,8 @@ body {
   text-align: center;
   line-height: 1.6;
   max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* 記事リストのスタイル */
@@ -166,7 +168,7 @@ body {
 /* レスポンシブ対応 */
 @media (max-width: 1024px) {
   .container {
-    padding: 20px 30px; /* パディングを少し減らす */
+    padding: 20px 50px; /* 左右のパディングを60pxから50pxに減少 */
   }
 
   .articles-grid {
@@ -176,7 +178,7 @@ body {
 
 @media (max-width: 768px) {
   .container {
-    padding: 20px 20px; /* パディングをさらに調整 */
+    padding: 20px 40px; /* 左右のパディングを50pxから40pxに調整 */
   }
 
   .articles-grid {
@@ -190,7 +192,7 @@ body {
 
 @media (max-width: 480px) {
   .container {
-    padding: 10px 15px; /* モバイルデバイス向けにパディングを調整 */
+    padding: 10px 20px; /* モバイルデバイス向けにパディングを調整 */
   }
 
   .articles-grid {
