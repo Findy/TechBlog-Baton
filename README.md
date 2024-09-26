@@ -18,8 +18,8 @@
 ### a. リポジトリのクローン
 
 ```bash
-git clone https://github.com/あなたのユーザー名/リポジトリ名.git
-cd リポジトリ名
+git clone git@github.com:Findy/TechBlog-Baton.git
+cd TechBlog-Baton
 ```
 
 ### b. 必要なファイルの確認
@@ -87,26 +87,9 @@ cd リポジトリ名
 
 ローカルでサイトを確認する場合、以下の手順でJekyll環境を構築してください。
 
-### ステップ1: `Gemfile` の確認または作成
+### ステップ1: Ruby 3.1以上のインストール
 
-1. プロジェクトディレクトリに移動し、`Gemfile` が存在しない場合は以下のコマンドで作成します。
-
-   ```bash
-   touch Gemfile
-   ```
-
-2. `Gemfile` に以下の内容を記述します。
-
-   ```ruby
-   source "https://rubygems.org"
-   
-   gem "jekyll", "~> 4.3.4"
-   gem "webrick", "~> 1.7"
-   ```
-
-   **説明**:
-   - `jekyll`: サイト生成に使用するGem。
-   - `webrick`: Jekyll 4.x 系ではローカルサーバーに必要です。
+1. お好きな方法でRuby 3.1以上をインストールしてくだい
 
 ### ステップ2: 必要なGemのインストール
 
