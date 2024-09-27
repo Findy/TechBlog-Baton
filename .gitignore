@@ -3,3 +3,6 @@
 /vendor
 _site
 Gemfile.lock
+
+# dependencies
+/node_modules
