@@ -77,4 +77,4 @@
 
 ## 発起人
 
-ファインディ株式会社 高橋裕之 hiroyuki.takahashi@findy.co.jp
+ファインディ株式会社 高橋裕之 ：（専用MLかSlackチャンネルを用意する予定）
